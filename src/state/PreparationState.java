@@ -7,7 +7,7 @@ import state.OrderState;
 public class PreparationState implements OrderState {
     @Override
     public void processOrder(Order order) {
-        System.out.println("icecreamshop.Order is being prepared.");
+        System.out.println("Order is being prepared.");
         order.setStatus("In Preparation");
     }
 }

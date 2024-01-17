@@ -7,7 +7,7 @@ import state.OrderState;
 public class PlacedState implements OrderState {
     @Override
     public void processOrder(Order order) {
-        System.out.println("icecreamshop.Order placed.");
+        System.out.println("Order placed.");
         order.setStatus("Placed");
     }
 }
