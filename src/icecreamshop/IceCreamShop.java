@@ -17,6 +17,7 @@ public class IceCreamShop {
         Order order = new OrderBuilder()
                 .addItem(new BasicIceCream())
                 .addObserver(new CustomerOrderObserver("Aashik")) // Customer name
+                .setDescription("Basic Ice Cream") // Set description
                 .build();
 
         // Execute the command.command.PlaceOrderCommand using the command.command.Command pattern

@@ -18,6 +18,11 @@ public class OrderBuilder {
         return this;
     }
 
+    public OrderBuilder setDescription(String description) {
+        order.setDescription(description);
+        return this;
+    }
+
     public Order build() {
         return order;
     }
