@@ -38,7 +38,7 @@ public class IceCreamShop {
         // Add special packaging using the Decorator pattern
         order = new SpecialPackagingDecorator(order);
         System.out.println("After adding special packaging:");
-        System.out.println(".Order Description: " + order.getDescription());
+        System.out.println("Order Description: " + order.getDescription());
         System.out.println("Order Total Cost: $" + order.calculateTotal());
 
         // Change order state using the State pattern
