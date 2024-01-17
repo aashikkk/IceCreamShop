@@ -1,3 +1,8 @@
+package chainofresponsibility;
+
+import chainofresponsibility.IceCreamHandler;
+import icecream.IceCream;
+
 public class ToppingHandler implements IceCreamHandler {
     private IceCreamHandler next;
     public void setNext(IceCreamHandler next) {

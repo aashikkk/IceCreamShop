@@ -1,3 +1,9 @@
+package builder;
+
+import icecream.IceCream;
+import observer.OrderObserver;
+import icecreamshop.Order;
+
 // Builder pattern
 public class OrderBuilder {
     private Order order = new Order();
@@ -9,11 +15,6 @@ public class OrderBuilder {
 
     public OrderBuilder addObserver(OrderObserver observer) {
         order.addObserver(observer);
-        return this;
-    }
-
-    public OrderBuilder setDescription(String description) {
-        order.setDescription(description);
         return this;
     }
 

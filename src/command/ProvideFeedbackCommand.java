@@ -1,3 +1,7 @@
+package command;
+
+import command.Command;
+
 // Concrete command for providing feedback
 public class ProvideFeedbackCommand implements Command {
     private String feedback;

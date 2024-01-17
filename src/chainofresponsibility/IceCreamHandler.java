@@ -1,3 +1,7 @@
+package chainofresponsibility;
+
+import icecream.IceCream;
+
 ;// Chain of Responsibility pattern
 
 public interface IceCreamHandler {

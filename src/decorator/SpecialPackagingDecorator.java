@@ -1,3 +1,8 @@
+package decorator;
+
+import decorator.OrderDecorator;
+import icecreamshop.Order;
+
 // Concrete decorator for adding special packaging
 public class SpecialPackagingDecorator extends OrderDecorator {
     public SpecialPackagingDecorator(Order decoratedOrder) {

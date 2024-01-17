@@ -1,3 +1,7 @@
+package decorator;
+
+import icecreamshop.Order;
+
 // Decorator pattern
 public abstract class OrderDecorator extends Order {
     protected Order decoratedOrder;

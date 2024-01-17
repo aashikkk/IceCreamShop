@@ -1,3 +1,5 @@
+package strategy;
+
 // Concrete strategies
 public class CashPaymentStrategy implements PaymentStrategy {
     @Override

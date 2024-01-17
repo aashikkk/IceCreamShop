@@ -1,4 +1,7 @@
-// Concrete command for placing an order
+package command;// Concrete command for placing an order
+
+import command.Command;
+import icecreamshop.Order;
 
 public class PlaceOrderCommand implements Command {
     private Order order;

@@ -1,4 +1,6 @@
-// Concrete handlers
+package chainofresponsibility;// Concrete handlers
+
+import icecream.IceCream;
 
 public class FlavorHandler implements IceCreamHandler {
     private IceCreamHandler next;

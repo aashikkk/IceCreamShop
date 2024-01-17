@@ -1,4 +1,7 @@
-// Context class
+package icecreamshop;// Context class
+
+import icecream.IceCream;
+import observer.OrderObserver;
 
 import java.util.ArrayList;
 import java.util.List;

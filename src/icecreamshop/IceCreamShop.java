@@ -1,13 +1,25 @@
+package icecreamshop;
+
+import builder.OrderBuilder;
+import command.Command;
+import command.PlaceOrderCommand;
+import command.ProvideFeedbackCommand;
+import decorator.GiftWrappingDecorator;
+import decorator.SpecialPackagingDecorator;
+import icecream.BasicIceCream;
+import observer.CustomerOrderObserver;
+import state.OrderState;
+import state.PreparationState;
+
 public class IceCreamShop {
     public static void main(String[] args) {
         // Create an order using the Builder pattern
         Order order = new OrderBuilder()
                 .addItem(new BasicIceCream())
                 .addObserver(new CustomerOrderObserver("Aashik")) // Customer name
-                .setDescription("Ice Cream Order") // Set description
                 .build();
 
-        // Execute the command.PlaceOrderCommand using the command.Command pattern
+        // Execute the command.command.PlaceOrderCommand using the command.command.Command pattern
         Command placeOrderCommand = new PlaceOrderCommand(order);
         placeOrderCommand.execute();
 
@@ -25,14 +37,14 @@ public class IceCreamShop {
         // Add special packaging using the Decorator pattern
         order = new SpecialPackagingDecorator(order);
         System.out.println("After adding special packaging:");
-        System.out.println("Order Description: " + order.getDescription());
+        System.out.println(".Order Description: " + order.getDescription());
         System.out.println("Order Total Cost: $" + order.calculateTotal());
 
         // Change order state using the State pattern
         OrderState preparationState = new PreparationState();
         preparationState.processOrder(order);
 
-        // Execute the command.ProvideFeedbackCommand using the command.Command pattern
+        // Execute the command.command.ProvideFeedbackCommand using the command.command.Command pattern
         Command provideFeedbackCommand = new ProvideFeedbackCommand("Great service!");
         provideFeedbackCommand.execute();
     }

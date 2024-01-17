@@ -1,3 +1,7 @@
+package observer;
+
+import icecreamshop.Order;
+
 // Concrete observer
 public class CustomerOrderObserver implements OrderObserver {
     private String customerName;
