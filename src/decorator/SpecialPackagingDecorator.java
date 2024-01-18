@@ -16,6 +16,6 @@ public class SpecialPackagingDecorator extends OrderDecorator {
 
     @Override
     public double calculateTotal() {
-        return super.calculateTotal() + 4.0; // Additional cost for special packaging
+        return super.calculateTotal() + 1.5; // Additional cost for special packaging
     }
 }

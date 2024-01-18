@@ -8,8 +8,12 @@ import decorator.GiftWrappingDecorator;
 import decorator.SpecialPackagingDecorator;
 import icecream.BasicIceCream;
 import observer.CustomerOrderObserver;
+import state.DeliveryState;
 import state.OrderState;
+import state.PickUpState;
 import state.PreparationState;
+import strategy.CreditCardPaymentStrategy;
+import strategy.PaymentStrategy;
 
 public class IceCreamShop {
     public static void main(String[] args) {
@@ -20,7 +24,7 @@ public class IceCreamShop {
                 .setDescription("Basic Ice Cream") // Set description
                 .build();
 
-        // Execute the command.command.PlaceOrderCommand using the command.command.Command pattern
+        // Execute the PlaceOrderCommand using the dCommand pattern
         Command placeOrderCommand = new PlaceOrderCommand(order);
         placeOrderCommand.execute();
 
@@ -41,11 +45,23 @@ public class IceCreamShop {
         System.out.println("Order Description: " + order.getDescription());
         System.out.println("Order Total Cost: $" + order.calculateTotal());
 
+        // Payment Method
+        PaymentStrategy creditCardPayment = new CreditCardPaymentStrategy();
+        creditCardPayment.pay(order.calculateTotal());
+
         // Change order state using the State pattern
         OrderState preparationState = new PreparationState();
         preparationState.processOrder(order);
 
-        // Execute the command.command.ProvideFeedbackCommand using the command.command.Command pattern
+        // for pickup
+        // OrderState pickupState = new PickUpState();
+        // pickupState.processOrder(order);
+
+        // for delivery
+        OrderState deliveryState = new DeliveryState();
+        deliveryState.processOrder(order);
+
+        // Execute the ProvideFeedbackCommand using the Command pattern
         Command provideFeedbackCommand = new ProvideFeedbackCommand("Great service!");
         provideFeedbackCommand.execute();
     }

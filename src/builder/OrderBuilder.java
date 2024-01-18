@@ -13,6 +13,11 @@ public class OrderBuilder {
         return this;
     }
 
+    public OrderBuilder removeItem(IceCream item) {
+        order.removeItem(item);
+        return this;
+    }
+
     public OrderBuilder addObserver(OrderObserver observer) {
         order.addObserver(observer);
         return this;

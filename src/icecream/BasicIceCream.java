@@ -6,6 +6,7 @@ import java.util.List;
 public class BasicIceCream implements IceCream {
     private String flavor;
     private List<String> toppings = new ArrayList<>();
+    private List<String> syrups = new ArrayList<>();
 
     @Override
     public String getDescription() {
@@ -28,6 +29,11 @@ public class BasicIceCream implements IceCream {
     }
 
     @Override
+    public List<String> getSyrups() {
+        return syrups;
+    }
+
+    @Override
     public void setFlavor(String flavor) {
         this.flavor = flavor;
     }
@@ -35,5 +41,10 @@ public class BasicIceCream implements IceCream {
     @Override
     public void addTopping(String topping) {
         toppings.add(topping);
+    }
+
+    @Override
+    public void addSyrup(String syrup) {
+        syrups.add(syrup);
     }
 }
