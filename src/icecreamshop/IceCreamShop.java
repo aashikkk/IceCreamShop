@@ -1,19 +1,12 @@
 package icecreamshop;
 
 import builder.OrderBuilder;
-import command.Command;
-import command.PlaceOrderCommand;
-import command.ProvideFeedbackCommand;
-import decorator.GiftWrappingDecorator;
-import decorator.SpecialPackagingDecorator;
+import command.*;
+import decorator.*;
 import icecream.BasicIceCream;
 import observer.CustomerOrderObserver;
-import state.DeliveryState;
-import state.OrderState;
-import state.PickUpState;
-import state.PreparationState;
-import strategy.CreditCardPaymentStrategy;
-import strategy.PaymentStrategy;
+import state.*;
+import strategy.*;
 
 public class IceCreamShop {
     public static void main(String[] args) {
