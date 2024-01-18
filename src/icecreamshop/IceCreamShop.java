@@ -5,6 +5,7 @@ import command.*;
 import decorator.*;
 import icecream.BasicIceCream;
 import observer.CustomerOrderObserver;
+import observer.LoyaltyProgram;
 import state.*;
 import strategy.*;
 
@@ -14,7 +15,7 @@ public class IceCreamShop {
         // Create an order using the Builder pattern
         Order order = new OrderBuilder()
                 .addItem(new BasicIceCream())
-                .addObserver(new CustomerOrderObserver("Aashik")) // Customer name
+                .addObserver(new CustomerOrderObserver("Aashik" )) // Customer name
                 .setDescription("Basic Ice Cream") // Set description
                 .build();
 
@@ -39,9 +40,20 @@ public class IceCreamShop {
         System.out.println("Order Description: " + order.getDescription());
         System.out.println("Order Total Cost: $" + order.calculateTotal());
 
+        // Apply seasonal promotion based on the time of the year
+        SeasonalPromotionStrategy promotionStrategy = getSeasonalPromotion();
+        double discountedTotal = promotionStrategy.applyDiscount(order.calculateTotal());
+
+        if (discountedTotal == order.calculateTotal()) {
+            System.out.print("");
+        }
+        else {
+            System.out.println("Total Cost (After Seasonal Promotion): $" + discountedTotal);
+        }
+
         // Payment Method
         PaymentStrategy creditCardPayment = new CreditCardPaymentStrategy();
-        creditCardPayment.pay(order.calculateTotal());
+        creditCardPayment.pay(discountedTotal);
 
         // Change order state using the State pattern
         OrderState preparationState = new PreparationState();
@@ -58,5 +70,21 @@ public class IceCreamShop {
         // Execute the ProvideFeedbackCommand using the Command pattern
         Command provideFeedbackCommand = new ProvideFeedbackCommand("Great service!");
         provideFeedbackCommand.execute();
+
+
     }
+    private static SeasonalPromotionStrategy getSeasonalPromotion() {
+        // Logic to determine the current season or promotion
+        // For simplicity, let's assume it is Christmas during December and Summer during June-August
+        int currentMonth = java.time.LocalDate.now().getMonthValue();
+
+        if (currentMonth == 12) {
+            return new ChristmasPromotion();
+        } else if (currentMonth >= 6 && currentMonth <= 8) {
+            return new SummerPromotion();
+        } else {
+            return originalCost -> originalCost; // No promotion
+        }
+    }
+
 }
