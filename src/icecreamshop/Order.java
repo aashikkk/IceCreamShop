@@ -2,6 +2,7 @@ package icecreamshop;// Context class
 
 import icecream.IceCream;
 import observer.OrderObserver;
+import userprofile.UserProfile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,7 @@ public class Order {
     private String status;
     private List<OrderObserver> observers = new ArrayList<>();
     private String description;
+    private UserProfile userProfile;
 
     public void setDescription(String description) {
         this.description = description;
@@ -54,5 +56,18 @@ public class Order {
 
     public String getDescription() {
         return description;
+    }
+
+    public void setUserProfile(UserProfile userProfile) {
+        this.userProfile = userProfile;
+    }
+
+    public void reorderFavorites() {
+        if(userProfile!= null){
+            List<IceCream> favorites = userProfile.getFavoriteIceCreams();
+            for (IceCream favorite : favorites){
+                addItem(favorite);
+            }
+        }
     }
 }

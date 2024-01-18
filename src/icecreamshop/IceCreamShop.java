@@ -10,6 +10,7 @@ import strategy.*;
 
 public class IceCreamShop {
     public static void main(String[] args) {
+
         // Create an order using the Builder pattern
         Order order = new OrderBuilder()
                 .addItem(new BasicIceCream())

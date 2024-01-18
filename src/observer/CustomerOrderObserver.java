@@ -12,6 +12,6 @@ public class CustomerOrderObserver implements OrderObserver {
 
     @Override
     public void update(Order order) {
-        System.out.println("Dear " + customerName + ", your order status is now: " + order.getStatus());
+        System.out.println("Dear " + customerName + ", your order status is now " + order.getStatus());
     }
 }

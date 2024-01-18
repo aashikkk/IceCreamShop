@@ -4,6 +4,6 @@ package strategy;
 public class CashPaymentStrategy implements PaymentStrategy {
     @Override
     public void pay(double amount) {
-        System.out.println("Paid $" + amount + " in cash.");
+        System.out.println("Payment Method: Paid $" + amount + " in cash.");
     }
 }
