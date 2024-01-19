@@ -9,4 +9,5 @@ public class DeliveryState implements OrderState {
         System.out.println("Order is out for delivery.");
         order.setStatus("Out for Delivery");
     }
+
 }

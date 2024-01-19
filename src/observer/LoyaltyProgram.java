@@ -28,4 +28,14 @@ public class LoyaltyProgram {
     public void setLoyaltyPoints(int loyaltyPoints) {
         this.loyaltyPoints = loyaltyPoints;
     }
+
+    // Additional method to simulate a purchase and notify observers
+    public void makePurchase(double purchaseAmount) {
+        // Update loyalty points based on the purchase amount
+        int earnedPoints = (int) (purchaseAmount / 10);
+        this.loyaltyPoints += earnedPoints;
+
+        // Notify observers about the update
+        notifyObservers(purchaseAmount);
+    }
 }

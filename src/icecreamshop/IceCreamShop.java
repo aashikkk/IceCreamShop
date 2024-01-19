@@ -19,7 +19,7 @@ public class IceCreamShop {
                 .setDescription("Basic Ice Cream") // Set description
                 .build();
 
-        // Execute the PlaceOrderCommand using the dCommand pattern
+        // Execute the PlaceOrderCommand using the Command pattern
         Command placeOrderCommand = new PlaceOrderCommand(order);
         placeOrderCommand.execute();
 
